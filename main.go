@@ -58,7 +58,7 @@ func main() {
 
 	// Wait for signal from the os before exiting
 	stop := make(chan os.Signal, 1)
-	signal.Notify(stop, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, os.Kill)
+	signal.Notify(stop, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
 	<-stop
 }
 
@@ -69,5 +69,19 @@ func messageCreate(s *discordgo.Session, msg *discordgo.MessageCreate) {
 		return
 	}
 
-	s.ChannelMessageSend(msg.ChannelID, "STFU!")
+	// Check if the bot was mentioned in the message
+	mentioned := false
+	for _, user := range msg.Mentions {
+		if user.ID == s.State.User.ID {
+			mentioned = true
+		}
+	}
+
+	// If the bot was mentioned, send a message back
+	if mentioned {
+		_, err := s.ChannelMessageSend(msg.ChannelID, "STFU!")
+		if err != nil {
+			log.Println("Failed to send message: ", err)
+		}
+	}
 }
