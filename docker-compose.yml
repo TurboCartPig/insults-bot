@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  bot:
+    build: .
+    environment:
+      - TOKEN_FILE=/run/secrets/discord-bot-token
+    secrets:
+      - discord-bot-token
+
+secrets:
+  discord-bot-token:
+    file: ./.token
