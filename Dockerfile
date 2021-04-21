@@ -5,7 +5,7 @@ FROM golang:1.16-alpine AS build
 WORKDIR /app
 
 # Download dependencies and cache them
-COPY go.* .
+COPY go.* ./
 RUN go mod download
 
 # Build the program
