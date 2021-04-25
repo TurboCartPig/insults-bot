@@ -1,4 +1,4 @@
-module insults-bot
+module github.com/TurboCartPig/insults-bot
 
 go 1.16
 
