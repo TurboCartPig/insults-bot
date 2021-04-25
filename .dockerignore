@@ -25,3 +25,20 @@ vendor/
 ### Secrets ###
 .env
 .token
+
+### Project files ###
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+.gcloudignore
+
+.golangci.yml
+
+.gitignore
+.gitattributes
+.gitmodules
+.github/
+
+readme.md
+license.md
