@@ -10,4 +10,4 @@ services:
 
 secrets:
   discord-bot-token:
-    file: ./.token
+    external: true
