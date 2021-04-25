@@ -10,7 +10,7 @@ RUN go mod download
 
 # Build the program
 COPY . .
-RUN go build -v -o bin/bot main.go
+RUN go build -v -o bin/bot ./...
 
 # Runtime image
 ##################################################
