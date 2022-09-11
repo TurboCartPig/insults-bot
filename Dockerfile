@@ -1,6 +1,6 @@
 # Build image
 ##################################################
-FROM golang:1.16-alpine AS build
+FROM golang:1.19.1-alpine AS build
 
 WORKDIR /app
 
