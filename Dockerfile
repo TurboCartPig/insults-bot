@@ -1,6 +1,6 @@
 # Build image
 ##################################################
-FROM golang:1.16-alpine AS build
+FROM golang:1.19-alpine3.16 AS build
 
 WORKDIR /app
 
@@ -17,7 +17,7 @@ RUN go build \
 
 # Runtime image
 ##################################################
-FROM alpine:3.13
+FROM alpine:3.16
 
 WORKDIR /app
 COPY --from=build /app/bin/bot ./
