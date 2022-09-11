@@ -17,7 +17,7 @@ RUN go build \
 
 # Runtime image
 ##################################################
-FROM alpine:3.13
+FROM alpine:3.16.2
 
 WORKDIR /app
 COPY --from=build /app/bin/bot ./
